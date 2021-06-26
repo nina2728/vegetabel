@@ -30,13 +30,16 @@
 | encrypted_password | string     | null: false                    |
 | name               | string     | null: false                    |
 | representative     | string     | null: false                    |
+| birthday           | date       | null: false                    |
+| postal_code        | string     | null: false                    |
 | prefecture_id      | integer    | null: false                    |
 | municipality       | string     | null: false                    |
 | address            | string     | null: false                    |
 | building_name      | string     |                                |
-| career             | text       |                                |
-| comment            | text       |                                |
-| point              | text       |                                |
+| phone_number       | integer    | null: false                    |
+| career             | text       | null: false                    |
+| comment            | text       | null: false                    |
+| point              | text       | null: false                    |
 
 ### Association
 
@@ -72,11 +75,12 @@
 - belongs_to :item
 - has_one    :receiver
 
-## receiversテーブル
+## purchasesテーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | addressee_id   | integer    | null: false                    |
+| postal_code    | string     |                                |
 | prefecture_id  | integer    |                                |
 | municipality   | string     |                                |
 | address        | string     |                                |
