@@ -20,7 +20,7 @@
 
 ### Association
 
-- has_many :buys
+- has_many :purchase_items
 
 ## farmersテーブル
 
@@ -60,9 +60,9 @@
 ### Association
 
 - belongs_to :farmer
-- has_one    :buy
+- has_one    :purchase_item
 
-## buysテーブル
+## purchase_itemsテーブル
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
@@ -73,7 +73,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one    :receiver
+- has_one    :purchase
 
 ## purchasesテーブル
 
@@ -85,8 +85,8 @@
 | municipality   | string     |                                |
 | address        | string     |                                |
 | building_name  | string     |                                |
-| buy            | references | null: false, foreign_key: true |
+| purchase_item  | references | null: false, foreign_key: true |
 
 ## Association
 
-- belongs_to :buy
+- belongs_to :purchase_item
