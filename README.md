@@ -1,24 +1,88 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Column               | Type    | Options                   |
+| -------------------- | ------- | ------------------------- |
+| email                | string  | null: false, unique: true |
+| encrypted_password   | string  | null: false               |
+| nickname             | string  | null: false               |
+| full_name_kanji      | string  | null: false               |
+| full_name_kana       | string  | null: false               |
+| birthday             | date    | null: false               |
+| postal_code          | string  | null: false               |
+| prefecture_id        | integer | null: false               |
+| municipality         | string  | null: false               |
+| address              | string  | null: false               |
+| building_name        | string  |                           |
+| phone_number         | integer | null: false               |
 
-* Ruby version
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :buys
 
-* Database creation
+## farmersテーブル
 
-* Database initialization
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| email              | string     | null: false, unique: true      |
+| encrypted_password | string     | null: false                    |
+| name               | string     | null: false                    |
+| representative     | string     | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| municipality       | string     | null: false                    |
+| address            | string     | null: false                    |
+| building_name      | string     |                                |
+| career             | text       |                                |
+| comment            | text       |                                |
+| point              | text       |                                |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- has_many :items
 
-* Deployment instructions
+## itemsテーブル
 
-* ...
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| name          | string     | null: false                    |
+| description   | text       | null: false                    |
+| contents      | string     | null: false                    |
+| delivery_id   | integer    | null: false                    |
+| shipping_id   | integer    | null: false                    |
+| price         | integer    | null: false                    |
+| farmer        | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :farmer
+- has_one    :buy
+
+## buysテーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+- has_one    :receiver
+
+## receiversテーブル
+
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| addressee_id   | integer    | null: false                    |
+| prefecture_id  | integer    |                                |
+| municipality   | string     |                                |
+| address        | string     |                                |
+| building_name  | string     |                                |
+| buy            | references | null: false, foreign_key: true |
+
+## Association
+
+- belongs_to :buy
