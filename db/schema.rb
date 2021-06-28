@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_06_27_043302) do
     t.string "municipality", null: false
     t.string "address", null: false
     t.string "building_name"
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.text "career", null: false
     t.text "comment", null: false
     t.text "point", null: false
@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_06_27_043302) do
     t.string "municipality", null: false
     t.string "address", null: false
     t.string "building_name"
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -14,7 +14,7 @@ class DeviseCreateFarmers < ActiveRecord::Migration[6.0]
       t.string  :municipality,       null: false
       t.string  :address,            null: false
       t.string  :building_name
-      t.integer :phone_number,       null: false
+      t.string  :phone_number,       null: false
       t.text    :career,             null: false
       t.text    :comment,            null: false
       t.text    :point,              null: false

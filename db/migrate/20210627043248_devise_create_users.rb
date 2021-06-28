@@ -15,7 +15,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string  :municipality,       null: false
       t.string  :address,            null: false
       t.string  :building_name
-      t.integer :phone_number,       null: false
+      t.string  :phone_number,       null: false
 
 
       ## Recoverable
