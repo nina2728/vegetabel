@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_06_27_043302) do
     t.string "encrypted_password", default: "", null: false
     t.string "name", null: false
     t.string "representative", null: false
+    t.string "representative_kana", null: false
     t.date "birthday", null: false
     t.string "postal_code", null: false
     t.integer "prefecture_id", null: false

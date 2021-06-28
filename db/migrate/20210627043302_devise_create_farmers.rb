@@ -8,6 +8,7 @@ class DeviseCreateFarmers < ActiveRecord::Migration[6.0]
       t.string  :encrypted_password, null: false, default: ""
       t.string  :name,               null: false
       t.string  :representative,     null: false
+      t.string  :representative_kana,null: false
       t.date    :birthday,           null: false
       t.string  :postal_code,        null: false
       t.integer :prefecture_id,      null: false
