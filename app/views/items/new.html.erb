@@ -37,6 +37,12 @@
         </div>
         <%= f.text_area :description, class:"items-text", id:"item-info", placeholder:"商品の説明（必須 1,000文字まで）例）農薬、化学肥料ともに最低限の使用に留めて、自然に優しい農業を目指しています。高原で育てているため、寒暖差が激しく甘さが売りです。" ,rows:"7" ,maxlength:"1000" %>
       </div>
+      <div class="items-contents">
+        <div class="weight-bold-text">
+          内容量
+          <span class="indispensable">必須</span>
+        </div>
+      <%= f.text_area :contents, class:"items-text", id:"item-cont", placeholder:"例) トウモロコシ Lサイズ10本、 トウモロコシ サイズ色々1kg（必須 40文字まで)", maxlength:"40" %>
     </div>
     <%# /商品名と商品説明 %>
 
