@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_farmer!, except: [:index, :show]
 
   def index
     @items = Item.includes(:farmer).order('created_at DESC')
