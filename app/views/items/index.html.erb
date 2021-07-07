@@ -1,3 +1,24 @@
 <%= render "shared/header" %>
-<%= link_to "出品する", new_item_path %>
+<div class="main_content">
+  <% @items.each do |item| %>
+      <li class='list'>
+        <%= link_to item_path(item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.image, class: "item-img" %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.price %>円<br><%= item.delivery.name %></span>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+  <div class="put_up_btn">
+    <%= link_to "出品する", new_item_path %>
+  </div>
+</div>
 <%= render "shared/footer" %>
