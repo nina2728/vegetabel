@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
+
   def index
+    @items = Item.includes(:farmer).order('created_at DESC')
   end
 
   def new
