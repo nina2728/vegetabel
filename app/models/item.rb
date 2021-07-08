@@ -6,6 +6,7 @@ class Item < ApplicationRecord
     belongs_to :prefecture
     belongs_to :category
     belongs_to :delivery
+    belongs_to :shipping
 
   with_options numericality: { other_than: 1 } do
     validates :prefecture_id, numericality: { less_than_or_equal_to: 48 }

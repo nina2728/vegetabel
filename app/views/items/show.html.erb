@@ -1,2 +1,60 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<%= render "shared/header" %>
+
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @item.name %>
+    </h2>
+    <div class="item-img-content">
+      <%= image_tag @item.image, class:"item-box-img" %>
+    </div>
+    <div class="item-price-box">
+      <span class="item-price">
+        <%= "¥#{@item.price}" %>
+      </span>
+      <span class="item-postage">
+        <%= @item.delivery.name %>
+      </span>
+    </div>
+
+  <% if user_signed_in? || farmer_signed_in? %>
+    <% if current_farmer.id == @item.farmer_id %>
+        <%= link_to "商品の編集", edit_item_path, method: :get, class: "item-red-btn" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", item_path, method: :delete, class:"item-destroy" %>
+    <% else %>
+        <%= link_to "購入画面に進む", item_buys_path(@item), class:"item-red-btn"%>
+    <% end %>
+  <% end %>
+
+    <div class="item-explain-box">
+      <span><%= @item.description %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">出品者</th>
+          <td class="detail-value"><%= @item.farmer.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">カテゴリー</th>
+          <td class="detail-value"><%= @item.category.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">配送料の負担</th>
+          <td class="detail-value"><%= @item.delivery.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">生産地</th>
+          <td class="detail-value"><%= @item.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">発送日の目安</th>
+          <td class="detail-value"><%= @item.shipping.name %></td>
+        </tr>
+      </tbody>
+    </table>
+  <%=link_to 'もどる', root_path, class:"back-btn" %>
+</div>
+
+<%= render "shared/footer" %>
