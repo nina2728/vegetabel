@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: "items#index" 
-  resources :items
+  resources :items do
+    resources :purchase_items, only: [:index, :create]
+  end
 end
