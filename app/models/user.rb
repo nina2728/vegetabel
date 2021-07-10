@@ -26,4 +26,6 @@ class User < ApplicationRecord
     belongs_to :prefecture
 
   validates :prefecture_id, numericality: { other_than: 1, less_than_or_equal_to: 48 }
+
+  has_many :purchase_items
 end
