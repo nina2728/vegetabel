@@ -20,7 +20,6 @@ class User < ApplicationRecord
       validates :municipality
       validates :address
       validates :phone_number
-      validates :image
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
