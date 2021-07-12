@@ -1,7 +1,6 @@
 class PurchaseItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :item_info
-  before_action :item_authenticate
   
   def new
     @order = Order.new
@@ -24,11 +23,5 @@ class PurchaseItemsController < ApplicationController
 
   def item_info
     @item = Item.find(params[:item_id])
-  end
-
-  def item_authenticate
-    if @item.user == current_user
-      redirect_to root_path
-    end
   end
 end
