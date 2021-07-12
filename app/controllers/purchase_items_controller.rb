@@ -1,6 +1,9 @@
 class PurchaseItemsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :item_info
+  before_action :item_authenticate
   
-  def index
+  def new
     @order = Order.new
   end
   
@@ -10,12 +13,22 @@ class PurchaseItemsController < ApplicationController
       @order.save
       redirect_to root_path
     else
-      render :index
+      render :new
     end
   end
 
   private
   def order_params
-    params.require(:order).permit(:item_id, :postal_code, :prefecture_id, :municipality, :address, :building_name).merge(:user_id current_user.id)
+    params.require(:order).permit(:postal_code, :prefecture_id, :municipality, :address, :building_name, :purchase_id).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+  end
+
+  def item_info
+    @item = Item.find(params[:item_id])
+  end
+
+  def item_authenticate
+    if @item.user == current_user
+      redirect_to root_path
+    end
   end
 end

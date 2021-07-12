@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   }
   root to: "items#index" 
   resources :items do
-    resources :purchase_items, only: [:index, :create]
+    resources :purchase_items, only: [:new, :create]
   end
 end
