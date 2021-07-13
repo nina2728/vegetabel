@@ -1,6 +1,7 @@
 class PurchaseItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :item_info
+  before_action :pay_item
   
   def new
     @order = Order.new
@@ -23,5 +24,14 @@ class PurchaseItemsController < ApplicationController
 
   def item_info
     @item = Item.find(params[:item_id])
+  end
+
+  def pay_item
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: order_params[:token],
+      currency: 'jpy'
+    )
   end
 end
