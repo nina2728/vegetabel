@@ -11,7 +11,7 @@
   <div class='nav'>
     <ul class='lists-left'>
       <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to '旬の野菜', "#", class: "brand-list" %></li>
+      <li><%= link_to '旬の野菜', "#", class: "season-list" %></li>
     </ul>
     <ul class='lists-right'>
     <% if user_signed_in? %>
@@ -23,8 +23,8 @@
     <% else %>
       <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
       <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <li><%= link_to '生産者ログイン', new_farmer_session_path, class: "login" %></li>
-      <li><%= link_to '生産者登録', new_farmer_registration_path, class: "sign-up" %></li>
+      <li><%= link_to '生産者ログイン', new_farmer_session_path, class: "f-login" %></li>
+      <li><%= link_to '生産者登録', new_farmer_registration_path, class: "f-sign-up" %></li>
     <% end %>
     </ul>
   </div>
