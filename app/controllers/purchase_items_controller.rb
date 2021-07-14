@@ -1,15 +1,15 @@
 class PurchaseItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :item_info
-  before_action :pay_item
   
   def new
     @order = Order.new
   end
   
   def create
-    @order = Order.create(order_params)
+    @order = Order.new(order_params)
     if @order.valid?
+      pay_item
       @order.save
       redirect_to root_path
     else
