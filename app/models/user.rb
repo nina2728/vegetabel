@@ -20,11 +20,12 @@ class User < ApplicationRecord
       validates :municipality
       validates :address
       validates :phone_number
-      validates :image
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :prefecture
 
   validates :prefecture_id, numericality: { other_than: 1, less_than_or_equal_to: 48 }
+
+  has_many :purchase_items
 end
