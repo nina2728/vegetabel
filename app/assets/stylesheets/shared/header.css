@@ -7,6 +7,7 @@
   padding: 2vh 15vw;
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .search-bar-contents {
@@ -16,8 +17,8 @@
 }
 
 .title-logo {
-  width: 10vw;
-  margin-right: 10vw;
+  width: 20vw;
+  margin-right: 20vw;
 }
 
 .search-form {
@@ -78,7 +79,6 @@
   align-items: flex-end;
 }
 
-
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;
@@ -102,24 +102,38 @@
 .login {
   text-decoration: none;
   line-height: 32px;
-  margin-right: 3vw;
+  margin-right: 1vw;
   color: #333333;
 }
 
 .sign-up {
   text-decoration: none;
+  line-height: 32px;
+  margin-right: 1vw;
+  margin-left: 1vw;
   color: #333333;
 }
 
-.f-logout {
+.f-sign-up {
   text-decoration: none;
+  line-height: 32px;
+  margin-right: 1vw;
+  margin-left: 1vw;
   color: #333333;
 }
 
 .f-login {
   text-decoration: none;
   line-height: 32px;
-  margin-right: 3vw;
-  margin-left: 3vw;
+  margin-right: 1vw;
+  margin-left: 1vw;
+  color: #333333;
+}
+
+.btn {
+  text-decoration: none;
+  line-height: 32px;
+  margin-right: 1vw;
+  margin-left: 1vw;
   color: #333333;
 }
