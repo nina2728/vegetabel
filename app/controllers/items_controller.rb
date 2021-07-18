@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:farmer).order('created_at DESC')
+    @items_new = Item.last(3)
   end
 
   def new

@@ -1,6 +1,21 @@
 <%= render "shared/header" %>
+
+<div class="top_page_image">
+  <%= image_tag "top-page-image.jpg", class: "top-page-image" %>
+    <ul>
+      <li>野菜を育てる喜び</li>
+      <li>野菜を食べる喜びをあなたに</li>
+      <li>趣味の家庭菜園からプロの農家まで誰でも出品できる</li>
+    </ul>
+</div>
+
+<div class="new-content">
+  <h1>新着農作物</h1>
+  <%= image_tag("second-logo.png", size: "50x50", class:"second-logo") %>
+</div>
+
 <div class="main_content">
-  <% @items.each do |item| %>
+  <% @items_new.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
@@ -17,10 +32,11 @@
         <% end %>
       </li>
     <% end %>
-  <% if farmer_signed_in? %>
-    <div class="put_up_btn">
-      <%= link_to "出品する", new_item_path %>
-    </div>
-  <% end %>
 </div>
+
+<%= link_to(new_item_path, class: 'purchase-btn') do %>
+  <span class='purchase-btn-text'>出品する</span>
+  <%= image_tag 'icon_carrots.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+<% end %>
+
 <%= render "shared/footer" %>
