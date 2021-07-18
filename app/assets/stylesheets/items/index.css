@@ -22,6 +22,11 @@
 }
 
 .new-content {
+  justify-content: center;
+  display: flex;
+  margin: 50px 0;
+  font-size: 2em;
+  color: black;
   width: 100vw;
   text-align: center;
   background: linear-gradient(transparent 70%, #a6ce39 70%);
