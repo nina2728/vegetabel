@@ -44,4 +44,15 @@ ja:
         building_name: 建物名
         token: クレジットカード情報
 
+ja:
+  activemodel:
+    attributes:
+      order:
+        postal_code: 郵便番号
+        prefecture_id: 都道府県
+        municipality: 市区町村
+        address: 番地
+        building_name: 建物名
+        token: クレジットカード情報
+
 
