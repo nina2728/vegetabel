@@ -10,12 +10,12 @@ class User < ApplicationRecord
   POSTAL_REGEX   = /\A\d{3}[-]\d{4}$|^\d{3}[-]\d{2}$|^\d{3}\z/
 
   validates :password,        format: { with: PASSWORD_REGEX }
+  validates :full_name_kanji, format: { with: KANJI_REGEX }
+  validates :full_name_kana,  format: { with: KANA_REGEX }
+  validates :postal_code,     format: { with: POSTAL_REGEX }
   
   with_options presence: true do
       validates :nickname,        length: { maximum: 10 }
-      validates :full_name_kanji, format: { with: KANJI_REGEX }
-      validates :full_name_kana,  format: { with: KANA_REGEX }
-      validates :postal_code,     format: { with: POSTAL_REGEX }
       validates :birthday
       validates :municipality
       validates :address

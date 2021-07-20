@@ -1,0 +1,9 @@
+.error-alert {
+  display: block;
+}
+
+.error-message {
+  text-align: center;
+  font-size: large;
+  color: red;
+}
