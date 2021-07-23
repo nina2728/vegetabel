@@ -13,6 +13,7 @@ class Item < ApplicationRecord
     validates :prefecture_id, numericality: { less_than_or_equal_to: 48 }
     validates :category_id, numericality: { less_than_or_equal_to: 6 }
     validates :delivery_id, numericality: { less_than_or_equal_to: 3 }
+    validates :shipping_id, numericality: { less_than_or_equal_to: 4 }
   end
 
   with_options presence: true do
