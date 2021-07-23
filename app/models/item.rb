@@ -21,6 +21,6 @@ class Item < ApplicationRecord
     validates :name
     validates :description
     validates :contents
-    validates :price
+    validates :price, numericality: { only_integer: true, less_than: 10000000 }
   end
 end

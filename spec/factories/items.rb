@@ -1,7 +1,7 @@
 FactoryBot.define do
   Faker::Config.locale = :ja
   factory :item do
-    association :user
+    association :farmer
     name          { Faker::Games::Pokemon.name }
     description   { Faker::Lorem.sentences }
     contents      { Faker::Lorem.sentences }
