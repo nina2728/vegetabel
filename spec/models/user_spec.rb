@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
       it "正しい値を入力すれば登録できる" do
         expect(@user).to be_valid
       end
-      it "building_nameがnilでも登録できる" do
+      it "building_nameが空でも登録できる" do
         @user.building_name = ""
         expect(@user).to be_valid
       end
