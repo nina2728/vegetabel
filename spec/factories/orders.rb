@@ -7,7 +7,5 @@ FactoryBot.define do
     address       { Faker::Address.street_address }
     building_name { Faker::Address.street_name }
     token         { Faker::Crypto.md5 }
-    user_id    
-    item_id
   end
 end
