@@ -1,15 +1,15 @@
 FactoryBot.define do
   Faker::Config.locale = :ja
-  transient do
-    person {Gimei.name}
-  end
   factory :farmer do
+    transient do
+      person {Gimei.name}
+    end
     email                 { Faker::Internet.free_email }
     password              { Faker::Lorem.characters(number: 6, min_alpha: 1, min_numeric: 1) }
     password_confirmation { password }
     name                  { Faker::Games::Pokemon.name }
-    representative        { person.kanji }
-    representative_kana   { person.katakana }
+    representative        { person.last.kanji }
+    representative_kana   { person.last.katakana }
     birthday              { Faker::Date.in_date_period }
     postal_code           { Faker::Address.postcode }
     prefecture_id         { Faker::Number.within(range: 2..48) }
