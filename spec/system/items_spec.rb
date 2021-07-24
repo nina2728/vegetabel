@@ -46,7 +46,7 @@ RSpec.describe "商品出品機能", type: :system do
       visit root_path
       # 出品するボタンを押しても生産者ログインしていないと生産者ログインページへ移動することを確認
       click_link '出品する'
-      expect(page).to have_content("生産者情報入力")
+      expect(current_path).to eq(new_farmer_session_path)
     end
   end
 end
