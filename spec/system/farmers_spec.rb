@@ -75,3 +75,48 @@ RSpec.describe "生産者新規登録", type: :system do
     end
   end
 end
+
+RSpec.describe "生産者ログイン", type: :system do
+  before do
+    @farmer = FactoryBot.create(:farmer)
+  end
+  context "生産者ログインができる時" do
+    it "保存されている生産者情報と合致すればログインできる" do
+      # トップページに移動
+      visit root_path
+      # トップページに生産者ログインボタンがある
+      expect(page).to have_content("生産者ログイン")
+      # 生産者ログインページへ移動する
+      visit new_farmer_session_path
+      # 正しいユーザー情報を入力する
+      fill_in "メールアドレス", with: @farmer.email
+      fill_in "パスワード", with: @farmer.password
+      # ログインボタンを押す
+      find('input[name="commit"]').click
+      # トップページへ移動することを確認する
+      expect(current_path).to eq(root_path)
+      # ログアウトボタンがあることを確認する
+      expect(page).to have_content("ログアウト")
+      # サインアップページ、ログインページへのボタンが表示されていないことを確認する
+      expect(page).to have_no_content("生産者登録")
+      expect(page).to have_no_content("生産者ログイン")
+    end
+  end
+  context "生産者ログインができない時" do
+    it "保存されている生産者情報と合致しないとログインできない" do
+      # トップページに移動
+      visit root_path
+      # トップページに生産者ログインボタンがある
+      expect(page).to have_content("生産者ログイン")
+      # 生産者ログインページへ移動する
+      visit new_farmer_session_path
+      # 誤った生産者情報を入力する
+      fill_in "メールアドレス", with: ""
+      fill_in "パスワード", with: ""
+      # ログインボタンを押す
+      find('input[name="commit"]').click
+      # ログインページへ戻されることを確認する
+      expect(current_path).to eq(new_farmer_session_path)
+    end
+  end
+end
