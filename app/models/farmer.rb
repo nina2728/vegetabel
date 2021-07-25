@@ -8,18 +8,19 @@ class Farmer < ApplicationRecord
   KANJI_REGEX    = /\A[ぁ-んァ-ヶ一-龥々ー]+\z/.freeze
   KANA_REGEX     = /\A[ァ-ヶー－]+\z/.freeze
   POSTAL_REGEX   = /\A\d{3}[-]\d{4}$|^\d{3}[-]\d{2}$|^\d{3}\z/
+  PHONE_REGEX    = /\A\d{10}$|^\d{11}\z/
 
-  validates :password,        format: { with: PASSWORD_REGEX }
+  validates :password,             format: { with: PASSWORD_REGEX }
   validates :representative,       format: { with: KANJI_REGEX }
   validates :representative_kana,  format: { with: KANA_REGEX }
   validates :postal_code,          format: { with: POSTAL_REGEX }
+  validates :phone_number,         format: { with: PHONE_REGEX }
   
   with_options presence: true do
       validates :name,                 length: { maximum: 20 }
       validates :birthday
       validates :municipality
       validates :address
-      validates :phone_number
       validates :career
       validates :comment
       validates :point

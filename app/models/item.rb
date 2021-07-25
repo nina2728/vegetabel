@@ -13,6 +13,7 @@ class Item < ApplicationRecord
     validates :prefecture_id, numericality: { less_than_or_equal_to: 48 }
     validates :category_id, numericality: { less_than_or_equal_to: 6 }
     validates :delivery_id, numericality: { less_than_or_equal_to: 3 }
+    validates :shipping_id, numericality: { less_than_or_equal_to: 4 }
   end
 
   with_options presence: true do
@@ -20,6 +21,6 @@ class Item < ApplicationRecord
     validates :name
     validates :description
     validates :contents
-    validates :price
+    validates :price, numericality: { only_integer: true, less_than: 10000000 }
   end
 end
