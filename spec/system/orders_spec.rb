@@ -26,9 +26,9 @@ RSpec.describe "Orders", type: :system do
       select "埼玉県", from: "都道府県"
       fill_in "市区町村", with: @order.municipality
       fill_in "番地", with: @order.address
-      find('#token', visible: false).set(@order.token)
       # 送信するとPurchase_itemモデル、Purchaseモデルのカウントが1あがることを確認する
       expect{
+        allow(Payjp::Charge).to receive(:create).and_return(params: {token: "tok_xxxxxxxx"})
         find('input[name="commit"]').click
       }.to change { Purchase.count }.by(1)
       # トップページへ移動することを確認する
