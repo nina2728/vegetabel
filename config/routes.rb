@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/new'
   devise_for :farmers, controllers: {
     sessions: 'farmers/sessions',
     passwords: 'farmers/passwords',
