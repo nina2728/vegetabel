@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :items do
     resources :purchase_items, only: [:new, :create]
   end
+
+  resources :messages, only: [:new, :create]
 end
