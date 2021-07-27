@@ -1,6 +1,16 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Herokuでデプロイするときに必要な設定
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.url = "wss://vegetabel.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ['https://vegetabel.herokuapp.com', 'http://vegetabel.herokuapp.com']
+
+  # AWSでデプロイするときに必要な設定
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.url = "ws://【Elastic IP】/cable" 
+  config.action_cable.allowed_request_origins = ['http://【Elastic IP】']
+  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
