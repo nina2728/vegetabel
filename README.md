@@ -76,7 +76,7 @@ Password: aaa111
 
 # :memo: ER図  
 
-![Vegetabel ER図](https://gyazo.com/54f2498cc83e13a1f17f22db1fc509bf)  
+[![Image from Gyazo](https://i.gyazo.com/51bc2d58c8c31442fb2664b59585cfb5.png)](https://gyazo.com/51bc2d58c8c31442fb2664b59585cfb5)
 
 # :airplane: ローカルでの動作方法  
 
