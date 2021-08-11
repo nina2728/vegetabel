@@ -74,6 +74,77 @@
   <% end %>
 </div>
 
+<div class="new-content">
+  <h1><%= @category.name %></h1>
+  <%= image_tag("second-logo.png", size: "50x50", class:"second-logo") %>
+</div>
+
+<div class="main_content slide-paused" ontouchstart="">
+  <% @items.each do |item| %>
+    <ul class="slideshow">
+      <li class="list content-hover">
+      <% if item.category.id == 2 %>
+        <%= link_to item_path(item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.image, class: "item-img" %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.price %>円<br><%= item.delivery.name %></span>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      </li>
+    </ul>
+  <% end %>
+  <% @items.each do |item| %>
+    <ul class="slideshow">
+      <li class="list content-hover">
+      <% if item.category.id == 2 %>
+        <%= link_to item_path(item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.image, class: "item-img" %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.price %>円<br><%= item.delivery.name %></span>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      </li>
+    </ul>
+  <% end %>
+  <% @items.each do |item| %>
+    <ul class="slideshow">
+      <li class="list content-hover">
+      <% if item.category.id == 2 %>
+        <%= link_to item_path(item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.image, class: "item-img" %>
+        </div>
+        <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.name %>
+          </h3>
+          <div class='item-price'>
+            <span><%= item.price %>円<br><%= item.delivery.name %></span>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+      </li>
+    </ul>
+  <% end %>
+</div>
+
 <%= link_to(new_item_path, class: 'purchase-btn') do %>
   <span class='purchase-btn-text'>出品する</span>
   <%= image_tag 'icon_carrots.png' , size: '185x50' ,class: "purchase-btn-icon" %>
